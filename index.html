@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Tinna & Ralph</title>
+  </head>
+  <body>
+    <div
+      class="transition-all popup bg-white w-full md:max-w-[450px] p-8 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 shadow-2xl rounded-2xl hidden flex-col justify-center items-center"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 popupclose self-end cursor-pointer"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+      <div class="flex flex-col justify-center items-center text-center">
+        <h2 class="font-bold text-xl mb-4 headings">Hey!</h2>
+        <p class="mb-4 text-base contentss">
+          We're so glad you used the right finger to click on the link we sent
+          you.
+        </p>
+        <p class="text-base contentss">
+          Print is so outdated, so we thought we'd give you all the information
+          about our big day, right here. Also, we love our planet.
+        </p>
+        <p class="mb-4 text-base contentss">
+          (P.S.: While you're here, don't forget to RSVP)
+        </p>
+        <button
+          class="bg-[#0010a2] transition-all text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-8 popupcontinue hover:bg-[#002aa2] shadow-xl headings"
+        >
+          Welcome On Board
+        </button>
+      </div>
+    </div>
+
+    <header class="relative isolate w-full h-full">
+      <img
+        src="./assets/header.jpg"
+        alt=""
+        width="100%"
+        class="w-full object-cover aspect-video"
+      />
+      <div
+        class="absolute top-[5%] z-20 w-full flex justify-center items-center"
+      >
+        <img src="./assets/h1.png" alt="" class="" width="90%" />
+      </div>
+    </header>
+    <section class="text-[#092140] text-center mt-8 md:mt-10 p-2">
+      <!-- <h2
+        class="text-[1.5rem] md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl flex flex-col text-[#092140] justify-center items-center md:gap-2 mb-2 md:mb-3 font-bold"
+      >
+        <span> We're getting married </span>
+        <span> AGAIN! </span>
+        <span> And we're so thrilled to ring in our wedding day with you </span>
+      </h2> -->
+      <h1
+        class="text-[1.5rem] md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl flex flex-col md:flex-row text-[#0010a2] justify-center items-center md:gap-2 md:mb-3 headings"
+      >
+        <span class="md:text-[#0010a2]">
+          <span>27<sup>th</sup> & 28<sup>th</sup> JANUARY 2024</span>
+        </span>
+        <span class="hidden md:block md:text-[#0010a2]">|</span>
+        <span class="md:text-[#0010a2]">DIVAR ISLAND, GOA</span>
+      </h1>
+      <p
+        class="flex flex-col md:flex-row justify-center items-center text-base text-center md:text-lg lg:text-2xl xl:text-3xl 2xl:text-4xl mb-4 mt-4 md:gap-1 contentss"
+      >
+        <span>WE'RE SO THRILLED TO RING IN </span>
+        <span> OUR WEDDING DAY WITH YOU!</span>
+      </p>
+
+      <div
+        id="countdown"
+        class="flex gap-6 md:gap-14 justify-center items-center leading-none p-2 mt-4 mb-5 headings"
+      ></div>
+
+      <div>
+        <button
+          class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-4 mb-2 md:mb-8 shadow-lg headings"
+          id="rsvpbutton"
+        >
+          RSVP
+        </button>
+      </div>
+
+      <div>
+        <a
+          href="#hero"
+          id="downarrow"
+          class="flex justify-center items-center md:hidden mt-4 mb-4"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="{1.5}"
+            stroke="currentColor"
+            class="w-12 h-12"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <section>
+      <dialog id="rsvpsuccess" class="p-4 rounded-lg">
+        <p id="successmessage" class="p-2 text-center text-base contentss"></p>
+        <button
+          id="closesuccess"
+          class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-8 shadow-lg headings"
+        >
+          Continue
+        </button>
+      </dialog>
+      <dialog id="rsvpmodal" class="rounded-xl p-4">
+        <form class="flex flex-col contentss" id="rsvpform">
+          <input
+            type="text"
+            name="Name"
+            id="name"
+            placeholder="Enter your full name"
+            class="p-2 m-2 border border-neutral-400 rounded-lg"
+            required
+          />
+          <input
+            type="email"
+            name="Email"
+            id="email"
+            placeholder="Enter your email"
+            class="p-2 m-2 border border-neutral-400 rounded-lg"
+            required
+          />
+          <div class="flex flex-col p-2 m-2">
+            <h4 for="attending" class="">Will you be attending?</h4>
+            <div>
+              <label for="yes">
+                <input
+                  type="radio"
+                  name="Attending"
+                  id="yes"
+                  value="yes"
+                  required
+                />Yes
+              </label>
+              <label for="no">
+                <input type="radio" name="Attending" id="no" value="no" />No
+              </label>
+            </div>
+          </div>
+          <div class="flex flex-col p-2 m-2">
+            <label for="guests" class=""
+              >How many additional guests are you bringing?</label
+            >
+            <select
+              name="Guests"
+              id="guests"
+              class="p-2 border rounded-lg"
+              onchange="myFunction(this.value);"
+            >
+              <option value="none">None, just me</option>
+              <option value="+1">+1</option>
+              <option value="+2">+2</option>
+            </select>
+          </div>
+          <div class="hidden flex-col p-2 m-2" id="guestsdiv">
+            <label for="guest1" id="guestLabel" class="hidden"
+              >Enter Name of the Guests</label
+            >
+            <input
+              type="text"
+              name="Guest_1"
+              class="p-2 m-2 border border-neutral-400 rounded-lg hidden"
+              id="guest1"
+            />
+            <input
+              type="text"
+              name="Guest_2"
+              class="p-2 m-2 border border-neutral-400 rounded-lg hidden"
+              id="guest2"
+            />
+          </div>
+          <div class="flex flex-col p-2 m-2">
+            <label for="message" class="">Any message or questions?</label>
+            <textarea
+              name="Message"
+              id="message"
+              class="h-[10vh] border border-neutral-400 rounded-lg"
+            ></textarea>
+          </div>
+          <div class="flex justify-evenly items-center">
+            <button
+              class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-8 shadow-lg headings"
+              id="rsvpsubmit"
+            >
+              Submit
+            </button>
+            <button
+              class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-8 shadow-lg headings"
+              id="closersvp"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      </dialog>
+    </section>
+
+    <section id="hero" class="mt-3 relative isolate w-full h-full">
+      <img
+        src="./assets/img2.jpg"
+        alt=""
+        width="100%"
+        class="w-full object-cover aspect-video"
+      />
+      <img
+        src="./assets/logo.png"
+        alt=""
+        class="absolute top-[4%] left-[3%] w-[8%]"
+      />
+      <img
+        src="./assets/date.png"
+        alt=""
+        class="absolute bottom-[4%] right-[3%] w-[8%]"
+      />
+    </section>
+
+    <section id="vows" class="text-center p-8 mt-3 md:mt-8">
+      <h2
+        class="text-[#0010a2] font-bold text-xl md:text-3xl lg:text-4xl headings"
+      >
+        VOWS BEFORE THE VOWS
+      </h2>
+      <div class="p-4 md:mt-1">
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to take the con...</span>
+          <span>When you're lost and clueless</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to make memories with you...</span>
+          <span>Even from a million miles away</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to do crazy poses & filters...</span>
+          <span>Even if it makes us look stupid</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to hug you...</span>
+          <span>Especially when you're feeling low</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to have your back...</span>
+          <span>Even if it's a little broken</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to take the wildest adventures with you...</span>
+          <span>Even if covid hits again</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to travel the world with you...</span>
+          <span>But only in my ride</span>
+        </p>
+        <p class="flex flex-col mb-4 vow">
+          <span>I vow to cast my reel...</span>
+          <span>Even when nothing's in sight</span>
+        </p>
+        <p class="flex flex-col vow">
+          <span>I vow to never let go...</span>
+          <span>Even when you're getting on my nerves</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="hero2" class="relative isolate w-full h-full">
+      <img
+        src="./assets/img3.jpg"
+        alt=""
+        width="100%"
+        class="w-full object-cover aspect-video"
+      />
+      <img
+        src="./assets/logo.png"
+        alt=""
+        class="absolute top-[4%] left-[3%] w-[8%]"
+      />
+      <img
+        src="./assets/date.png"
+        alt=""
+        class="absolute bottom-[4%] right-[3%] w-[8%]"
+      />
+    </section>
+
+    <section
+      id="weddingfestivities"
+      class="p-4 md:px-20 lg:px-28 xl:px-36 mt-7"
+    >
+      <h2
+        class="text-center font-semibold text-xl md:text-3xl lg:text-4xl text-[#0010a2] mb-4 headings"
+      >
+        WEDDING FESTIVITIES
+      </h2>
+      <div class="text-left p-2 text-sm md:text-base">
+        <h3 class="text-lg md:text-2xl text-[#0010a2] font-semibold headings">
+          27<sup>th</sup> JANUARY 2024
+        </h3>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHEN?</p>
+          <p class="contentss">12:00 PM TO 1:00 PM</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHAT?</p>
+          <p class="contentss">COLOUR US YELLOW WITH YOUR BLESSINGS / HALDI</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHERE?</p>
+          <p class="contentss">MANOS LAWNS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">
+            WEAR WHAT?
+          </p>
+          <p class="contentss">ALL WHITE CASUALS</p>
+        </div>
+        <div class="my-2 h-[3px] flex justify-start">
+          <p class="bg-[#0010a2] w-[200px]"></p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHEN?</p>
+          <p class="contentss">5:30 PM TO 6:30 PM</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHAT?</p>
+          <p class="contentss">WE TIE THE KNOT/PHERAS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHERE?</p>
+          <p class="contentss">DEEVAYA RIVER FRONT LAWNS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">
+            WEAR WHAT?
+          </p>
+          <p class="contentss">AN ODE TO INDIAN ROYALTY [EARTHY TONES]</p>
+        </div>
+        <div class="my-2 h-[3px] flex justify-start">
+          <p class="bg-[#0010a2] w-[200px]"></p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHEN?</p>
+          <p class="contentss">7:00 PM ONWARDS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHAT?</p>
+          <p class="contentss">WINE AND DINE</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHERE?</p>
+          <p class="contentss">BY THE POOLSIDE</p>
+        </div>
+      </div>
+      <div class="text-right p-2 text-sm md:text-base">
+        <h3 class="text-lg md:text-2xl text-[#0010a2] font-semibold headings">
+          28<sup>th</sup> JANUARY 2024
+        </h3>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHEN?</p>
+          <p class="contentss">4:00 PM TO 5:00 PM</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHAT?</p>
+          <p class="contentss">WE SAY OUR VOWS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHERE?</p>
+          <p class="contentss">ST.CAJETAN CHURCH, OLD GOA</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">
+            WEAR WHAT?
+          </p>
+          <p class="contentss">FORMAL WEAR</p>
+        </div>
+        <div class="my-2 h-[3px] flex justify-end">
+          <p class="bg-[#0010a2] w-[200px]"></p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHEN?</p>
+          <p class="contentss">7:30 PM ONWARDS</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHAT?</p>
+          <p class="contentss">POP THE CHAMPAGNE & DANCE THE NIGHT AWAY</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">WHERE?</p>
+          <p class="contentss">PAVILION, MERCURE DEEVAYA RESORT</p>
+        </div>
+        <div class="py-2">
+          <p class="text-[#0010a2] text-sm font-semibold headings">
+            WEAR WHAT?
+          </p>
+          <p class="contentss">STARRY NIGHT FORMAL ATTIRE</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3
+          class="mt-7 text-center font-semibold text-xl md:text-3xl lg:text-4xl text-[#0010a2] p-2 headings"
+        >
+          TRAVEL & STAY
+        </h3>
+      </div>
+    </section>
+
+    <section class="px-4">
+      <h3 class="font-bold text-center md:text-xl contentss">
+        MERCURE DEVAAYA RESORT, DIVAR ISLAND, GOA
+      </h3>
+    </section>
+
+    <section id="hero3" class="mt-3 relative isolate w-full">
+      <img
+        src="./assets/img4.jpg"
+        alt=""
+        width="100%"
+        class="w-full object-cover aspect-video"
+      />
+      <img
+        src="./assets/logo.png"
+        alt=""
+        class="absolute top-[4%] left-[3%] w-[8%]"
+      />
+      <img
+        src="./assets/date.png"
+        alt=""
+        class="absolute bottom-[4%] right-[3%] w-[8%]"
+      />
+    </section>
+
+    <section class="p-2">
+      <div class="md:mb-4 contentss">
+        <a
+          href="https://all.accor.com/hotel/B4F9/index.en.shtml"
+          target="_blank"
+          class="flex justify-center items-start pt-4 underline px-4 text-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+            />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+            />
+          </svg>
+          <span>
+            Mercure Goa Devaaya Resort, Divar Island, Panaji, Goa, India
+          </span>
+        </a>
+      </div>
+      <!-- <div class="mt-2 grid md:grid-cols-2 justify-center items-center gap-2">
+        <div
+          class="p-2 bg-[#0010a2] rounded-2xl bg-opacity-50 flex flex-col gap-2 w-fit justify-self-center md:p-6 lg:p-10"
+        >
+          <div class="flex gap-2 justify-start items-center">
+            <svg
+              style="color: white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 512"
+              class="w-8 h-8"
+            >
+              
+              <path
+                d="M.2528 166.9L.0426 67.99C.0208 57.74 9.508 50.11 19.51 52.34L55.07 60.24C65.63 62.58 74.29 70.11 78.09 80.24L95.1 127.1L223.3 165.6L181.8 20.4C178.9 10.18 186.6 .001 197.2 .001H237.3C248.8 .001 259.5 6.236 265.2 16.31L374.2 210.2L481.5 241.8C497.4 246.5 512.2 254.3 525.2 264.7L559.6 292.2C583.7 311.4 577.7 349.5 548.9 360.5C507.7 376.1 462.7 378.5 420.1 367.4L121.7 289.8C110.6 286.9 100.5 281.1 92.4 272.9L9.536 189.4C3.606 183.4 .2707 175.3 .2528 166.9V166.9zM608 448C625.7 448 640 462.3 640 480C640 497.7 625.7 512 608 512H32C14.33 512 0 497.7 0 480C0 462.3 14.33 448 32 448H608zM192 368C192 385.7 177.7 400 160 400C142.3 400 128 385.7 128 368C128 350.3 142.3 336 160 336C177.7 336 192 350.3 192 368zM224 384C224 366.3 238.3 352 256 352C273.7 352 288 366.3 288 384C288 401.7 273.7 416 256 416C238.3 416 224 401.7 224 384z"
+                fill="white"
+              ></path>
+            </svg>
+
+            <p>Distance From Dabolim Airport: 36.4 km</p>
+          </div>
+          <div class="flex gap-2 justify-start items-center">
+            <svg
+              style="color: white"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 448 512"
+              class="w-8 h-8"
+            >
+           
+              <path
+                d="M86.76 48C74.61 48 63.12 53.52 55.53 63.01L42.74 78.99C34.46 89.34 19.36 91.02 9.007 82.74C-1.343 74.46-3.021 59.36 5.259 49.01L18.04 33.03C34.74 12.15 60.03 0 86.76 0H361.2C387.1 0 413.3 12.15 429.1 33.03L442.7 49.01C451 59.36 449.3 74.46 438.1 82.74C428.6 91.02 413.5 89.34 405.3 78.99L392.5 63.01C384.9 53.52 373.4 48 361.2 48H248V96H288C341 96 384 138.1 384 192V352C384 382.6 369.7 409.8 347.4 427.4L412.9 492.9C419.9 499.9 414.9 512 404.1 512H365.3C356.8 512 348.6 508.6 342.6 502.6L288 448H160L105.4 502.6C99.37 508.6 91.23 512 82.74 512H43.04C33.06 512 28.06 499.9 35.12 492.9L100.6 427.4C78.3 409.8 64 382.6 64 352V192C64 138.1 106.1 96 160 96H200V48H86.76zM160 160C142.3 160 128 174.3 128 192V224C128 241.7 142.3 256 160 256H288C305.7 256 320 241.7 320 224V192C320 174.3 305.7 160 288 160H160zM160 320C142.3 320 128 334.3 128 352C128 369.7 142.3 384 160 384C177.7 384 192 369.7 192 352C192 334.3 177.7 320 160 320zM288 384C305.7 384 320 369.7 320 352C320 334.3 305.7 320 288 320C270.3 320 256 334.3 256 352C256 369.7 270.3 384 288 384z"
+                fill="white"
+              ></path>
+            </svg>
+            <p>Distance From Karmali Train Station: 12km</p>
+          </div>
+        </div>
+        <div class="p-2">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d480.4968505669934!2d73.90782942796486!3d15.539481345822903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc08e645c34e5%3A0x146d34cbf492611d!2sMercure%20Goa%20Devaaya%20Resort!5e0!3m2!1sen!2sin!4v1691562969380!5m2!1sen!2sin"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="w-full h-64 rounded-lg"
+          ></iframe>
+        </div>
+      </div> -->
+      <div class="p-2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d480.4968505669934!2d73.90782942796486!3d15.539481345822903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc08e645c34e5%3A0x146d34cbf492611d!2sMercure%20Goa%20Devaaya%20Resort!5e0!3m2!1sen!2sin!4v1691562969380!5m2!1sen!2sin"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-[40vh] rounded-lg"
+        ></iframe>
+      </div>
+    </section>
+    <!-- <section
+      class="flex justify-center items-center p-4 my-8 px-8 md:px-16 lg:px-32 xl:px-40 2xl:px-48"
+    >
+      <div class="">
+        <h2
+          class="text-center font-bold text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          Weather in Goa
+        </h2>
+        <div class="md:mt-2">
+          <p>
+            Located on the southwest coast of India, Goa is famous for its
+            idyllic warm weather on the coasts of the Arabian Sea. January may
+            be the coolest month of the year in Goa, but the region still enjoys
+            beautiful temperatures making it a perfect time of year for weddings
+            in the sun.
+          </p>
+          <p>
+            The average daytime temperature in Goa hovers around 25°C in
+            January, with highs of 31°C during the hottest part of the day. At
+            night the temperature dips to around 20°C.
+          </p>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="properties" class="mt-8 mb-2">
+      <h3
+        class="text-center px-4 font-bold text-lg md:text-xl text-[#0010a2] headings"
+      >
+        PROPERTIES TO BOOK IN AND AROUND DIVAR ISLAND
+      </h3>
+      <div class="px-7 flex justify-center mt-4 text-center contentss">
+        <div class="flex flex-col gap-4 justify-center">
+          <div class="mt-2">
+            <h4 class="uppercase md:text-lg">
+              DoubleTree by Hilton Goa - Panaji
+            </h4>
+            <a
+              href="https://www.hilton.com/en/hotels/goigddi-doubletree-goa-panaji/?WT.mc_id=zLADA0IN1DT2PSH3GGL4INTBPP5dkt6GOIGDDI7en_&epid!_&ebuy!&&&gclid=CjwKCAjwxOymBhAFEiwAnodBLEEeQ6LWm8HLOF9HQvQYECzm3GyAxcLbotkvfckbkaht9QahYh87EhoCGfoQAvD_BwE&gclsrc=aw.ds"
+              target="_blank"
+              class="flex items-start justify-center text-center text-[#0010a2]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                />
+              </svg>
+              <span>DoubleTree by Hilton Goa - Panaji </span>
+            </a>
+          </div>
+          <!-- <div class="mt-2">
+            <h4 class="uppercase font-semibold md:text-lg">Island House Goa</h4>
+            <a
+              href="https://islandhousegoa.com/"
+              target="_blank"
+              class="flex items-end text-[#0010a2] gap-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                />
+              </svg>
+
+              <span> Island House Goa </span>
+            </a>
+          </div> -->
+          <div class="mt-2">
+            <h4 class="uppercase md:text-lg">The Fern</h4>
+            <a
+              href="https://www.fernhotels.com/the-fern-kadamba"
+              target="_blank"
+              class="flex items-start justify-center text-center text-[#0010a2] gap-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                />
+              </svg>
+
+              <span> The Fern </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hero2" class="mt-12 relative isolate w-full h-full">
+      <img
+        src="./assets/hero4.jpg"
+        alt=""
+        width="100%"
+        class="w-full object-cover aspect-video"
+      />
+      <img
+        src="./assets/logo.png"
+        alt=""
+        class="absolute top-[4%] left-[3%] w-[8%]"
+      />
+      <img
+        src="./assets/date.png"
+        alt=""
+        class="absolute bottom-[4%] right-[3%] w-[8%]"
+      />
+    </section>
+    <section class="mt-6 p-2 px-4 md:px-20 lg:px-40 xl:px-44 2xl:px-52">
+      <div class="mt-4">
+        <h3
+          class="text-center text-[#0010a2] font-bold text-base sm:text-xl md:text-2xl lg:text-3xl mb-3 headings"
+        >
+          WHEN ? WHAT ? WHERE ? HOW ?
+        </h3>
+      </div>
+
+      <div class="flex flex-col">
+        <div>
+          <button class="flex accordion headings">
+            <span class="block sidearrow"> </span>
+            <span class="hidden downarrow"> </span>
+
+            <span class="flex gap-1 md:gap-2"
+              >WHEN IS THE <i> RSVP </i> DEADLINE ?</span
+            >
+          </button>
+          <div class="panel contentss">
+            <p class="w-full">
+              Please RSVP by October 30th, so we can have an accurate headcount.
+              :)
+            </p>
+          </div>
+        </div>
+        <div>
+          <button class="flex accordion headings">
+            <span class="block sidearrow"> </span>
+            <span class="hidden downarrow"> </span>
+            <span> WHAT SHOULD I <i>WEAR</i> ? </span>
+          </button>
+          <div class="panel contentss">
+            <p class="w-full">
+              Located on the southwest coast of India, Goa is famous for its
+              idyllic warm weather on the coasts of the Arabian Sea. January may
+              be the coolest month of the year in Goa, but the region still
+              enjoys beautiful temperatures making it a perfect time of year for
+              weddings in the sun.
+            </p>
+            <p class="w-full">
+              The average daytime temperature in Goa hovers around
+              25<sup>o</sup>C in January, with highs of 31<sup>o</sup>C during
+              the hottest part of the day. At night the temperature dips to
+              around 20<sup>o</sup>C. So please plan your wardrobe accordingly.
+            </p>
+          </div>
+        </div>
+        <div>
+          <button class="flex accordion headings">
+            <span class="block sidearrow"> </span>
+            <span class="hidden downarrow"> </span>
+            <span> WHERE IS THE WEDDING <i>LOCATION</i> ? </span>
+          </button>
+          <div class="panel contentss">
+            <p class="w-full">
+              It's here we say " I Do" - The Mercure Devaaya Resort, Divar, Goa
+              Mercure Goa Devaaya Retreat is located on the "Island of love" at
+              Divar. Nearest to the historic landmarks of Old Goa, the city of
+              Panjim and onshore and offshore casinos.
+            </p>
+            <p class="w-full">
+              The picturesque settings at the magical resort is an invite to
+              soak in a space that showcases the spirit of Goa with its
+              Portuguese and Indian blend of cultures creating a fantastic
+              backdrop to your entire wedding experience.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-2 flex flex-col justify-center items-start md:items-end contentss"
+      >
+        <div class="">
+          <div class=" ">
+            <button class="flex accordion headings">
+              <span class="block sidearrow"> </span>
+              <span class="hidden downarrow"> </span>
+              <span class="w-full md:text-right">
+                WHO SHOULD I <i>CONTACT FOR QUERIES</i> ?
+              </span>
+            </button>
+            <div class="panel md:text-right contentss">
+              <p class="w-full">
+                Our wedding planners, Knot This Way will be available for any
+                assistance or queries. You may reach the team on +91. 9158872200
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <button class="flex accordion headings">
+              <span class="block sidearrow"> </span>
+              <span class="hidden downarrow"> </span>
+              <span class="w-full md:text-right">
+                WHAT <i>SPECIAL SERVICES</i> ARE PROVIDED ?
+              </span>
+            </button>
+            <div class="panel md:text-right contentss">
+              <p class="w-full">
+                Yes, we will have a complimentary pick up from the airport to
+                Mercure Devaaya Resort at a fixed time. The resort also has a
+                golf cart & wheel chairs available for anyone needing assistance
+                getting around the property!
+              </p>
+            </div>
+          </div>
+          <div>
+            <button class="flex accordion headings">
+              <span class="block sidearrow"> </span>
+              <span class="hidden downarrow"> </span>
+              <span class="w-full md:text-right">
+                HOW DO I GET TO THE VENUE ?
+              </span>
+            </button>
+            <div class="panel md:text-right contentss">
+              <p class="w-full">
+                Here's a ready reckoner to plan your travels to Ralph & Tinna's
+                wedding in Goa, India.
+              </p>
+              <p class="w-full">
+                Goa is well connected by air, rail & road connectivity. The
+                nearest airport to the Mercure Devaaya Resort, Divar, Goa is
+                Dabolim International Airport ( South Goa ) which is
+                approximately 37kms & Manohar Parrikar International Airport (
+                North Goa ) which is approximately 39 kms. The nearest rail head
+                is at Karmali Railway Station at a distance of approximately 12
+                kms.
+              </p>
+              <p class="w-full">
+                You will also need to cross over the river Mandovi to reach
+                Divar islands, via a ferry service which is operational from 6am
+                to 12pm. The nearest ferry point is the Old Goa Ferry Terminal
+                near Viceroy's Arch, Old Goa.
+              </p>
+            </div>
+          </div>
+          <!-- <div>
+          <button class="accordion">WHAT SPECIAL SERVICES ARE PROVIDED?</button>
+          <div class="panel">
+            <p class="w-full">
+              Yes, for those driving down to the wedding, there is ample parking
+              for guest vehicles. However parking facilities are outside of the
+              resort gates along side a public road with over head coconut trees
+              lining the sides of the road.
+            </p>
+          </div>
+        </div> -->
+        </div>
+      </div>
+    </section>
+
+    <div class="mt-8">
+      <h3
+        class="text-center text-[#0010a2] font-bold text-xl md:text-2xl lg:text-3xl mb-3 headings"
+      >
+        GIFTS... GIFTS... GIFTS...
+      </h3>
+      <p class="text-center flex flex-col contentss">
+        <span>If a gift is on your mind,</span>
+        <span> A contribution would be kind. </span>
+        <span> It will help us more than words can say, </span>
+        <span> To celebrate our special day!</span>
+      </p>
+    </div>
+
+    <section
+      class="gifts flex flex-col md:flex-row justify-center items-center gap-4 p-2 mt-4 pb-10 md:pb-16 lg:pb-28"
+    >
+      <div class="flex flex-col justify-center items-center gap-2">
+        <img
+          src="./assets/homefund.jpg"
+          alt=""
+          class="max-w-[200px] md:max-w-[300px] aspect-square"
+        />
+        <button
+          id="homefund"
+          class="text-[#0010a2] transition-all hover:bg-[#0010a2] hover:text-white p-2 rounded-3xl headings italic"
+        >
+          HOME FUND
+        </button>
+
+        <dialog id="homefunddialog" class="p-4">
+          <p></p>
+          <img src="./assets/qr.jpeg" alt="" class="max-w-[200px]" />
+          <button
+            id="homefundclose"
+            class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-8 shadow-lg headings"
+          >
+            Close
+          </button>
+        </dialog>
+      </div>
+      <div class="flex flex-col justify-center items-center gap-2">
+        <img
+          src="./assets/honeymoonfund.jpg"
+          alt=""
+          class="max-w-[200px] md:max-w-[300px] aspect-square"
+        />
+        <button
+          id="honeymoonfund"
+          class="text-[#0010a2] transition-all hover:bg-[#0010a2] hover:text-white p-2 rounded-3xl headings italic"
+        >
+          HONEYMOON FUND
+        </button>
+        <dialog id="honeymoonfunddialog" class="p-4">
+          <img src="./assets/qr.jpeg" alt="" class="max-w-[200px] p-2" />
+          <button
+            id="honeymoonfundclose"
+            class="bg-[#0010a2] text-white rounded-3xl p-2 px-8 m-4 font-bold mt-2 mb-1 md:mb-6 shadow-lg headings"
+          >
+            Close
+          </button>
+        </dialog>
+      </div>
+    </section>
+    <section class="contentss">
+      <h2
+        class="text-center mb-8 md:mb-10 lg:mb-12 md:text-base lg:text-lg contentss"
+      >
+        Enough said! Now RSVP already!
+      </h2>
+      <!-- <div class="flex justify-center items-center">
+        <div
+          class="flex flex-col md:flex-row justify-center items-center text-center mb-8 md:mb-10 lg:mb-12 gap-1 shadow-2xl p-4 rounded-lg"
+        >
+          <div class="md:text-base lg:text-lg">Enough said!</div>
+          <div class="flex justify-center items-center gap-1">
+            <div>Now</div>
+            <button
+              class="bg-[#0010a2] text-white text-base rounded-3xl p-1 px-2 font-semibold shadow-xl headings"
+              id="rsvpbuttons"
+            >
+              RSVP
+            </button>
+            <div class="md:text-base lg:text-lg">already!</div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+    <section class="p-2"></section>
+
+    <script>
+      const dialog = document.querySelector("dialog");
+      dialog.addEventListener("click", (e) => {
+        const dialogDimensions = dialog.getBoundingClientRect();
+        if (
+          e.clientX < dialogDimensions.left ||
+          e.clientX > dialogDimensions.right ||
+          e.clientY < dialogDimensions.top ||
+          e.clientY > dialogDimensions.bottom
+        ) {
+          dialog.close();
+        }
+      });
+
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          var sidearrow = this.firstElementChild;
+          var downarrow = this.firstElementChild.nextElementSibling;
+          if (panel.style.display === "block") {
+            panel.style.display = "none";
+            sidearrow.style.display = "block";
+            downarrow.style.display = "none";
+          } else {
+            panel.style.display = "block";
+            sidearrow.style.display = "none";
+            downarrow.style.display = "block";
+          }
+        });
+      }
+
+      //
+      const guest1 = document.getElementById("guest1");
+      const guest2 = document.getElementById("guest2");
+      const guests = document.getElementById("guests");
+      const guestLabel = document.getElementById("guestLabel");
+      const guestsdiv = document.getElementById("guestsdiv");
+      guest1.value = "-";
+      guest2.value = "-";
+
+      function myFunction(value) {
+        if (value === "none") {
+          guestsdiv.style.display = "none";
+          guestLabel.style.display = "none";
+          guest1.value = "-";
+          guest2.value = "-";
+
+          guest1.style.display = "none";
+          guest2.style.display = "none";
+        }
+        if (value === "+1") {
+          guestsdiv.style.display = "flex";
+          guestLabel.style.display = "block";
+
+          guest1.value = "";
+          guest2.value = "-";
+
+          guest1.style.display = "block";
+          guest2.style.display = "none";
+        }
+        if (value === "+2") {
+          guestsdiv.style.display = "flex";
+          guestLabel.style.display = "block";
+
+          guest1.value = "";
+          guest2.value = "";
+
+          guest1.style.display = "block";
+          guest2.style.display = "block";
+        }
+      }
+
+      const homefundButton = document.getElementById("homefund");
+      const honeymoonfundButton = document.getElementById("honeymoonfund");
+      const homefunddialog = document.getElementById("homefunddialog");
+      const honeymoonfunddialog = document.getElementById(
+        "honeymoonfunddialog"
+      );
+      const honeymoonfundcloseButton =
+        document.getElementById("honeymoonfundclose");
+      const homefundcloseButton = document.getElementById("homefundclose");
+
+      homefundButton.addEventListener("click", () => {
+        homefunddialog.showModal();
+      });
+      homefundcloseButton.addEventListener("click", () => {
+        homefunddialog.close();
+      });
+
+      honeymoonfundButton.addEventListener("click", () => {
+        honeymoonfunddialog.showModal();
+      });
+
+      honeymoonfundcloseButton.addEventListener("click", () => {
+        honeymoonfunddialog.close();
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <script type="module" src="main.js"></script>
+
+    <script>
+      //smooth scroll
+      // const lenis = new Lenis();
+
+      // lenis.on("scroll", (e) => {
+      //   console.log(e);
+      // });
+
+      // function raf(time) {
+      //   lenis.raf(time);
+      //   requestAnimationFrame(raf);
+      // }
+
+      // requestAnimationFrame(raf);
+    </script>
+  </body>
+</html>

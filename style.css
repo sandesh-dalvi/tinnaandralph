@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: bookerdisplay;
+  src: url("/assets/BookerlyDisplay_Rg.ttf");
+}
+@font-face {
+  font-family: Futura;
+  src: url("/assets/Futura.otf");
+}
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+  scroll-behavior: smooth;
+}
+html {
+  height: 100%;
+}
+
+body {
+  /* font-family: bookerdisplay !important; */
+  /* width: 100vw !important; */
+  min-height: 100vh !important;
+  /* overflow-x: hidden !important; */
+}
+
+#countdown > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.8rem;
+  /* font-weight: bold; */
+}
+.countspan {
+  font-size: 0.75rem !important;
+}
+
+@media (min-width: 28em) {
+  #countdown > div {
+    font-size: 4rem;
+  }
+  .countspan {
+    font-size: 1rem !important;
+  }
+}
+@media (min-width: 30em) {
+  #countdown > div {
+    font-size: 5rem;
+  }
+  .countspan {
+    font-size: 1.125rem !important;
+  }
+}
+@media (min-width: 40em) {
+  #countdown > div {
+    font-size: 6rem;
+  }
+  .countspan {
+    font-size: 1.25rem !important;
+  }
+}
+@media (min-width: 60em) {
+  #countdown > div {
+    font-size: 8rem;
+  }
+}
+
+#countdown > div > span {
+  font-size: 1rem;
+}
+dialog {
+  z-index: 10;
+  margin-top: 10px;
+  border: none;
+  border-radius: 1rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+dialog::backdrop {
+  background-color: #00000073;
+}
+
+#vows .vow {
+  font-family: Futura !important;
+  font-style: italic;
+}
+
+.accordion {
+  /* background-color: #eee; */
+  color: #0010a2;
+  cursor: pointer;
+  padding: 4px;
+  width: 100%;
+  max-width: 500px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 12px;
+  transition: 1s ease-in-out;
+}
+.panel {
+  font-size: 13px;
+  /* font-weight: 600; */
+  transition: 1s ease-in-out;
+}
+
+@media (min-width: 28em) {
+  .accordion {
+    font-size: 15px;
+  }
+  .panel {
+    font-size: 16px;
+  }
+}
+@media (min-width: 30em) {
+  .accordion {
+    font-size: 15px;
+  }
+  .panel {
+    font-size: 16px;
+  }
+}
+@media (min-width: 40em) {
+  .accordion {
+    font-size: 16px;
+  }
+  .panel {
+    font-size: 17px;
+  }
+}
+@media (min-width: 60em) {
+  .accordion {
+    font-size: 20px;
+  }
+  .panel {
+    font-size: 21px;
+  }
+}
+
+.active,
+.accordion:hover {
+  /* background-color: #ccc; */
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.headings {
+  font-family: bookerdisplay !important;
+}
+
+.contentss {
+  font-family: Futura !important;
+}
