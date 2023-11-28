@@ -69,11 +69,13 @@ export function rsvpForm() {
 
   rsvpForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    document.getElementById("rsvpsubmit").style.background = "#0010a271";
+    document.getElementById("rsvpsubmit").disabled = true;
     const scriptUrl =
       "https://script.google.com/macros/s/AKfycbyTRhD40iiqUwHnubCoKuD5vxjamTKwHUQDElmQuXEiftFpBWmSzqRWSCQGPlBvsJ3O/exec";
 
     const formData = new FormData(rsvpForm);
-    console.log(formData.entries);
+    // console.log(formData.entries);
 
     fetch(scriptUrl, {
       method: "POST",
@@ -81,6 +83,8 @@ export function rsvpForm() {
       // mode: "no-cors",
     })
       .then((res) => {
+        document.getElementById("rsvpsubmit").disabled = false;
+        rsvpForm.reset();
         rsvpSuccessModal.showModal();
         // console.log(res);
         rsvpSuccessMessage.innerText = "Thank You for Your RSVP!!";
